@@ -10648,7 +10648,7 @@ a.text-dark:focus {
   border-radius: 15px;
 }
 
-svg:hover {
+.action-hover:hover {
   transform: scale(1.1);
 }
 
