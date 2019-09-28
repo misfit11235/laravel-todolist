@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Task;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $tasks = Task::all();
+        $statuses = array(
+            Task::STATUS_TODO => 'To do',
+            Task::STATUS_IN_PROGRESS => 'In progress',
+            Task::STATUS_IN_REVIEW => 'In review',
+            Task::STATUS_DONE => 'To do'
+        );
+        return view('home', ['tasks' => $tasks, 'statuses' => $statuses]);
     }
 }
