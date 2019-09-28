@@ -25,12 +25,6 @@ class HomeController extends Controller
     public function index()
     {
         $tasks = Task::all();
-        $statuses = array(
-            Task::STATUS_TODO => 'To do',
-            Task::STATUS_IN_PROGRESS => 'In progress',
-            Task::STATUS_IN_REVIEW => 'In review',
-            Task::STATUS_DONE => 'To do'
-        );
-        return view('home', ['tasks' => $tasks, 'statuses' => $statuses]);
+        return view('home', ['tasks' => $tasks]);
     }
 }

@@ -10,7 +10,7 @@
             </div>
             <div id='task-actions' class='d-flex flex-row justify-content-between'>
                 <div class='d-flex flex-column py-3 mx-4'>
-                    <span class='h5'>Status: {{$statuses[$task->status]}}</span>
+                    <span class='h5'>Status: {{$task->state}}</span>
                     <a href='#' class='h6 text-white'>Change status</a>
                 </div>
                 <div class='d-flex flex-row mx-3'>
