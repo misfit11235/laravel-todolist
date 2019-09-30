@@ -10652,3 +10652,24 @@ a.text-dark:focus {
   transform: scale(1.1);
 }
 
+input,
+input:active,
+input:focus,
+select,
+select:focus,
+select:active {
+  border: none !important;
+  border-bottom: 1px solid #343a40 !important;
+  background-color: inherit !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+textarea,
+textarea:active,
+textarea:focus {
+  outline: none !important;
+  border-color: inherit !important;
+  box-shadow: none !important;
+}
+
