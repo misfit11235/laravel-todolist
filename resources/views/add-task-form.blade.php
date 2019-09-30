@@ -2,7 +2,7 @@
 @section('content')
     <div class='container'>
         <span class='h1'>Add new task:</span>
-        <form action='{{route("add-task")}}' method='post' class='py-5'>
+        <form action='{{route("task.add")}}' method='post' class='py-5'>
             @csrf
             <div class='py-3'>
                 <label for="title" class='h3'>Title</label>
@@ -18,6 +18,14 @@
                     <option selected>None</option>
                     @foreach($users as $user)
                         <option>{{$user->email}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class='py-3'>
+                <label for="status" class='h3'>Status</label>
+                <select class="form-control" id="status" name='status'>
+                    @foreach(App\Models\Task::STATUS as $key => $status)
+                        <option value='{{$key}}'>{{$status}}</option>
                     @endforeach
                 </select>
             </div>

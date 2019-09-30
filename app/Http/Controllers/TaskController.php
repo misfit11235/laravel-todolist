@@ -13,6 +13,7 @@ class TaskController extends Controller
         $task->title = $request->input('title');
         $task->description = $request->input('description');
         if($request->input('assignee') != 'None')  $task->user_id = User::where('email', $request->input('assignee'))->first()->id;
+        $task->status = $request->input('status');
         $task->save();
         return redirect()->route('home');
     }
@@ -20,15 +21,30 @@ class TaskController extends Controller
         $users = User::all();
         return view('add-task-form', ['users' => $users]);
     }
-    public function editTask(Request $request){
-        
+    public function editTask(Request $request, $taskId){
+        $task = Task::find($taskId);
+        $task->title = $request->input('title');
+        $task->description = $request->input('description');
+        if($request->input('assignee') != 'None')  $task->user_id = User::where('email', $request->input('assignee'))->first()->id;
+        else $task->user_id = NULL;
+        $task->status = $request->input('status');
+        $task->save();
+        return redirect()->route('home');
     }
     public function editTaskForm($taskId){
         $task = Task::find($taskId);
-        return view('edit-task-form', ['task' => $task]);
+        $users = User::all();
+        return view('edit-task-form', ['task' => $task, 'users' => $users]);
     }
     public function deleteTask($taskId){
         Task::destroy($taskId);
+        return redirect()->route('home');
+    }
+
+    public function changeStatus($taskId, $status) {
+        $task = Task::find($taskId);
+        $task->status = $status;
+        $task->save();
         return redirect()->route('home');
     }
 }

@@ -26,7 +26,7 @@
                 <a href='{{route("home")}}' class='btn-dark text-white py-3 my-2'>
                     <span class='h1'>Take me to the task list!</span>
                 </a>
-                <a href='#' class='btn-danger py-3 my-2'>
+                <a href='{{route("logout")}}' class='btn-danger py-3 my-2'>
                     <span class='h1'>Logout</span>
                 </a>
             </div>
