@@ -16,8 +16,8 @@
                 <a href='{{route("login")}}' class='btn-dark text-white py-3 my-2'>
                     <span class='h1'>Login</span>
                 </a>
-                <a href='#' class='btn-primary py-3 my-2'>
-                    <span class='h1'>Login with Facebook</span>
+                <a href='{{route("register")}}' class='btn-primary py-3 my-2'>
+                    <span class='h1'>Register</span>
                 </a>
             </div>
             @endguest

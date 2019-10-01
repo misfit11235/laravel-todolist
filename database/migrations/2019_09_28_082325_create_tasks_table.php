@@ -18,7 +18,7 @@ class CreateTasksTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->mediumText('description');
-            $table->unsignedTinyInteger('status')->default(Task::STATUS_TODO);
+            $table->unsignedTinyInteger('status')->default(1);
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

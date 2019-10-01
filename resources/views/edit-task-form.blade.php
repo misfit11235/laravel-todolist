@@ -15,12 +15,13 @@
             <div class='py-3'>
                 <label for="assignee" class='h3'>Assignee</label>
                 <select class="form-control" id="assignee" name='assignee'>
-                    <option selected hidden>@if($task->user_id){{\App\User::find($task->user_id)->email}} @else None @endif</option>
+                    <option selected hidden>@if($task->user_id) {{$task->user->email}} @else None @endif</option>
                     @foreach($users as $user)
                         <option>{{$user->email}}</option>
                     @endforeach
                 </select>
             </div>
+            @if(Auth::user()->id == $task->user_id || Auth::user()->is_admin)
             <div class='py-3'>
                 <label for="status" class='h3'>Status</label>
                 <select class="form-control" id="status" name='status'>
@@ -30,6 +31,7 @@
                     @endforeach
                 </select>
             </div>
+            @endif
             <button type="submit" class="btn btn-lg btn-success py-3 my-3">
                 <span class='h3'>Submit edited task</span>
             </button>
