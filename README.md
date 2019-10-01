@@ -8,12 +8,12 @@ cp .env.example .env //modify db accordingly
 php artisan key:generate
 php artisan migrate
 php artisan db:seed
-php artisan ser
+php artisan serve
 ```
 
 ## Credentials for admin account
 * foo@bar.com
 * laravel1234
 
-### Enjoy
+### Enjoy!
 
