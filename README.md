@@ -15,5 +15,5 @@ php artisan ser
 * foo@bar.com
 * laravel1234
 
-### Enjoy!
+### Enjoy
 
